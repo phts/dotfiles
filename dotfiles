@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+  echo "Usage: ${0#*/} COMMAND [APP]..."
+  exit 1
+fi
+
+cmd=$1; shift
+
+./$cmd $@

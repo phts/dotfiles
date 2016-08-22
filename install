@@ -3,6 +3,7 @@
 for app in "$@"
 do
   app=${app/\//}
-  cp -r $app/. ~/
+  path=`./path $app`
+  cp -r $app/. "$path"/
   ./postinstall $app
 done

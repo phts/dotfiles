@@ -6,12 +6,14 @@ IFS=$(echo -en "\n\b")
 for app in "$@"
 do
   app=${app/\//}
-  for file in $(find $app -type f)
+  path=`./path $app`
+  for localfile in $(find $app -type f)
   do
-    output=`diff -r --ignore-all-space $file ~/${file#$app/}`
+    realfile=$path/${localfile#$app/}
+    output=`diff -r --ignore-all-space $localfile $realfile`
     if [ $? -ne 0 ]; then
       echo
-      echo "$file <=> ~/${file#$app/}"
+      echo "$localfile <=> $realfile"
       echo "$output"
     fi
   done

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+app="$1"
+app=${app/\//}
+
+case $app in
+  *)
+    echo ~
+    ;;
+esac

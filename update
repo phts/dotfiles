@@ -6,9 +6,11 @@ IFS=$(echo -en "\n\b")
 for app in "$@"
 do
   app=${app/\//}
-  for file in $(find $app -type f)
+  path=`./path $app`
+  for localfile in $(find $app -type f)
   do
-    cp ~/${file#$app/} $file
+    realfile=$path/${localfile#$app/}
+    cp $realfile $localfile
   done
 done
 

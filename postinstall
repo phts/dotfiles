@@ -1,11 +1,13 @@
 #!/bin/bash
 
+user_postinstall_sh=./postinstall.user
+
+if [ ! -f $user_postinstall_sh ]; then
+  exit
+fi
+
 for app in "$@"
 do
   app=${app/\//}
-  # if [ $app == "some-app" ]; then
-  #   cd ~/.config/some-app
-  #   # perform here some app-specific actions
-  #   cd -
-  # fi
+  $user_postinstall_sh $app
 done

@@ -12,14 +12,21 @@ Each set of configs should be placed in separate folders.
 Names of such folders should not contain spaces.
 These folders should contain the same hierarchy which should be
 in the user folder (`~`) of the target system.
-Optionally this path can be changed for specific configs via
-amending `path` file.
 
-Additionally there is a support for post-install scripts. They can be added in `postinstall` file.
+Mapping of local path to system path for particular configs can be changed
+in a file `path.user`.
 
-### Example:
+Additionally there is a support for post-install scripts. They can be added in
+`postinstall.user` file.
 
-Some config structure:
+Both `path.user` and `postinstall.user` files should have `+x` permission
+and should be placed in the config storage root.
+`path.user.example` and `postinstall.user.example` are presented in this repo
+in order to sipmly copy, rename and add own content.
+
+### Example
+
+Config structure exmaple:
 
     my configs
       \_ git
@@ -37,8 +44,11 @@ Some config structure:
       |              |_ Default (Linux).sublime-mousemap
       |              \_ Preferences.sublime-settings
       |
-      \_ zsh
-         \_ .zshrc
+      |_ zsh
+      |  \_ .zshrc
+      |
+      |_ path.user
+      \_ postinstall.user
 
 And a workflow example:
 

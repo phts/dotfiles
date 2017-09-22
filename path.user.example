@@ -1,0 +1,9 @@
+#!/bin/bash
+
+app="$1"
+
+case $app in
+  some-app)
+    echo "/absolute/path/to/some-app-configs"
+    ;;
+esac

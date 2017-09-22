@@ -1,9 +1,11 @@
 #!/bin/bash
 
+scriptdir=`dirname "$0"`
+
 for app in "$@"
 do
   app=${app/\//}
-  path=`./path $app`
+  path=`"$scriptdir"/path $app`
   cp -r $app/. "$path"/
-  ./postinstall $app
+  "$scriptdir"/postinstall $app
 done

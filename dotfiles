@@ -12,4 +12,5 @@ if [ $# -eq 0 ]; then
   apps=$(find -mindepth 1 -maxdepth 1 -type d -not -path '*/\.*' -exec basename {} \; | sort)
 fi
 
-./$cmd $apps
+scriptdir=`dirname $0`
+"$scriptdir"/$cmd $apps

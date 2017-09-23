@@ -13,4 +13,4 @@ if [ $# -eq 0 ]; then
 fi
 
 scriptdir=`dirname $0`
-"$scriptdir"/$cmd $apps
+"$scriptdir"/commands/$cmd $apps

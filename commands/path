@@ -4,12 +4,16 @@ app="$1"
 app=${app/\//}
 user_path_sh=./path.user
 
+if [ -f $user_path_sh ]; then
+  user_path=`$user_path_sh $app`
+  if [ -n "$user_path" ]; then
+    echo $user_path
+    exit
+  fi
+fi
+
 case $app in
   *)
-    if [ -f $user_path_sh ]; then
-      $user_path_sh $app
-    else
-      echo ~
-    fi
+    echo ~
     ;;
 esac

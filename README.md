@@ -22,11 +22,11 @@ Additionally there is a support for post-install scripts. They can be added in
 Both `path.user` and `postinstall.user` files should have `+x` permission
 and should be placed in the config storage root.
 `examples/path.user.example` and `examples/postinstall.user.example` are
-presented in this repo in order to sipmly copy, rename and add own content.
+presented in this repo in order to simply copy, rename and add own content.
 
 ### Example
 
-Config structure exmaple:
+Config structure example:
 
     my configs
       \_ git

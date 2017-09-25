@@ -1,7 +1,9 @@
 #!/bin/bash
 
+app_name=`basename $0`
+
 if [ $# -eq 0 ]; then
-  echo "Usage: ${0#*/} COMMAND [APP]..."
+  echo "Usage: $app_name COMMAND [APP]..."
   exit 1
 fi
 

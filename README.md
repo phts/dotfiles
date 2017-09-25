@@ -55,7 +55,7 @@ And a workflow example:
     $ cd "my configs"
     $ git pull                          <--- pull changes from your repo with configs
     $ dotfiles install git              <--- install git configs from the repo to the system
-    $ dotfiles update sublime-text-3    <--- copy Sublime Text configs from the system to the local repo
+    $ dotfiles pull sublime-text-3      <--- copy Sublime Text configs from the system to the local repo
     $ git commit -am "Update Sublime Text configs"    <--- commit updated configs
     $ git push                                        <--- and push
 
@@ -77,6 +77,6 @@ And a workflow example:
 
         dotfiles postinstall [APP]...
 
-* Update local configs from the system
+* Pull configs from the system to the local folder
 
-        dotfiles update [APP]...
+        dotfiles pull [APP]...

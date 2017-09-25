@@ -2,8 +2,12 @@
 
 app_name=`basename $0`
 
-if [ $# -eq 0 ]; then
+function print_usage {
   echo "Usage: $app_name COMMAND [APP]..."
+}
+
+if [ $# -eq 0 ]; then
+  print_usage
   exit 1
 fi
 
@@ -28,4 +32,10 @@ if [ $# -eq 0 ]; then
 fi
 
 scriptdir=`getScriptDir "$0"`
-"$scriptdir"/commands/$cmd $apps
+cmd_file="$scriptdir"/commands/$cmd
+if [ ! -f $cmd_file ]; then
+  print_usage
+  exit 1
+fi
+
+$cmd_file $apps

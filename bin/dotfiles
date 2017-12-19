@@ -18,10 +18,14 @@ commandsdir="$scriptdir"/commands
 app_name=`basename $0`
 
 function print_usage {
-  echo "Usage: $app_name <command> [APP]..."
+  echo "Usage: $app_name <command> [OPTIONS] [APP]..."
   echo
   echo "Commands:"
   echo "    $(ls -m $commandsdir)"
+  echo
+  echo "Options:"
+  echo "    --backup          creates backups from to original files;"
+  echo "                      for install only"
 }
 
 if [ $# -eq 0 ]; then

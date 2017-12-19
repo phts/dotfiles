@@ -1,11 +1,31 @@
 #!/bin/bash
 
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+
 scriptdir=`dirname "$0"`
+
+if [ "$1" == "--backup" ]; then
+  backup="1"
+  shift
+fi
 
 for app in "$@"
 do
   app=${app/\//}
   path=`"$scriptdir"/path $app`
+
+  if [ "$backup" == "1" ]; then
+    for localfile in $(find $app -type f)
+    do
+      realfile=$path/${localfile#$app/}
+      echo "Backup $realfile"
+      cp "$realfile" "$realfile.bak"
+    done
+  fi
+
   cp -r $app/. "$path"/
   "$scriptdir"/postinstall $app
 done
+
+IFS=$SAVEIFS

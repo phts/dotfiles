@@ -24,8 +24,7 @@ function print_usage {
   echo "    $(ls -m $commandsdir)"
   echo
   echo "Options:"
-  echo "    --backup          creates backups from to original files;"
-  echo "                      for install only"
+  echo "    --backup          create backups of original files (install only)"
 }
 
 if [ $# -eq 0 ]; then

@@ -1,5 +1,9 @@
 # Dotfiles
 
+*DEPRECATED in favor of [dtfls](https://github.com/phts/dtfls).*
+
+---
+
 Tool to backup/restore config files.
 
 This is my _bicycle_ and does not aim at originality.
